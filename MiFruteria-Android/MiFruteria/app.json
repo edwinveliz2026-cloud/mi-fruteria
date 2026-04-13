@@ -15,9 +15,6 @@
       "versionCode": 1,
       "permissions": []
     },
-    "plugins": [
-      "@react-native-async-storage/async-storage"
-    ],
     "extra": {
       "eas": {
         "projectId": "17c775a6-2a4d-4455-937b-a8b446c4e73a"
