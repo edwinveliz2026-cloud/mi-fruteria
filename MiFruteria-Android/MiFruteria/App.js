@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import {
   View, Text, StyleSheet, TouchableOpacity, ScrollView,
-  TextInput, StatusBar, ActivityIndicator, Platform,
+  TextInput, StatusBar, ActivityIndicator,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -9,7 +9,7 @@ import ResumenScreen from './src/screens/ResumenScreen';
 import GastosScreen from './src/screens/GastosScreen';
 import VentasScreen from './src/screens/VentasScreen';
 import { usePersistedState, KEY_GASTOS, KEY_VENTAS, DEMO_GASTOS, DEMO_VENTAS } from './src/utils/storage';
-import { COLORS, today, getWeekRange, inRange } from './src/utils/helpers';
+import { COLORS, today, getWeekRange } from './src/utils/helpers';
 
 const TABS = [
   { key: 'resumen', label: '📊 Resumen' },
@@ -35,7 +35,6 @@ export default function App() {
   const [gastos, setGastos, gastosLoaded] = usePersistedState(KEY_GASTOS, DEMO_GASTOS);
   const [ventas, setVentas, ventasLoaded] = usePersistedState(KEY_VENTAS, DEMO_VENTAS);
 
-  // Rango de fechas activo
   const filtroRango = useMemo(() => {
     const hoy = today();
     if (filtroTipo === 'hoy')    return { desde: hoy,         hasta: hoy,         label: 'Hoy' };
@@ -47,7 +46,6 @@ export default function App() {
 
   const { desde, hasta, label } = filtroRango;
 
-  // Flash de guardado propagado desde hijos
   const flashSave = () => {
     setSaved(true);
     setTimeout(() => setSaved(false), 2000);
@@ -91,14 +89,24 @@ export default function App() {
       </View>
 
       {/* Filtros */}
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={[styles.filtrosScroll, {backgroundColor: COLORS.bg}]} contentContainerStyle={styles.filtrosContent}>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        style={styles.filtrosScroll}
+        contentContainerStyle={styles.filtrosContent}
+      >
         {FILTROS.map(([k, l]) => (
           <TouchableOpacity
             key={k}
-            style={[styles.filtroBtn, filtroTipo === k && styles.filtroBtnActive]}
+            style={[
+              styles.filtroBtn,
+              { backgroundColor: filtroTipo === k ? COLORS.primary : '#ffffff' }
+            ]}
             onPress={() => setFiltroTipo(k)}
           >
-            <Text style={[styles.filtroText, filtroTipo === k && styles.filtroTextActive]}>{l}</Text>
+            <Text style={{ fontSize: 12, fontWeight: '700', color: filtroTipo === k ? '#ffffff' : '#666666' }}>
+              {l}
+            </Text>
           </TouchableOpacity>
         ))}
       </ScrollView>
@@ -124,7 +132,7 @@ export default function App() {
       )}
 
       {/* Contenido */}
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, backgroundColor: COLORS.bg }}>
         {tab === 'resumen' && (
           <ResumenScreen gastos={gastos} ventas={ventas} desde={desde} hasta={hasta} label={label} />
         )}
@@ -146,21 +154,15 @@ const styles = StyleSheet.create({
   hsub: { fontSize: 12, color: 'rgba(255,255,255,0.85)', marginTop: 2 },
   badge: { backgroundColor: '#27ae60', paddingHorizontal: 10, paddingVertical: 3, borderRadius: 20, alignSelf: 'flex-start', marginTop: 6 },
   badgeText: { color: '#fff', fontSize: 11, fontWeight: '800' },
-  // Tabs
   tabsRow: { flexDirection: 'row', backgroundColor: '#fff', borderRadius: 16, margin: 13, marginTop: 10, marginBottom: 0, padding: 4, shadowColor: '#000', shadowOpacity: 0.06, shadowRadius: 8, elevation: 2, gap: 3 },
   tabBtn: { flex: 1, borderRadius: 12, overflow: 'hidden' },
   tabBtnActive: {},
   tabGrad: { padding: 9, alignItems: 'center' },
   tabText: { color: '#888', fontSize: 11, fontWeight: '700', textAlign: 'center', paddingVertical: 9 },
   tabTextActive: { color: '#fff', fontSize: 11, fontWeight: '700' },
-  // Filtros
-  filtrosScroll: { marginTop: 10 },
-  filtrosContent: { paddingHorizontal: 13, gap: 6 },
-  filtroBtn: { borderRadius: 20, paddingHorizontal: 14, paddingVertical: 7, backgroundColor: '#fff', shadowColor: '#000', shadowOpacity: 0.04, shadowRadius: 4, elevation: 1 },
-  filtroBtnActive: { backgroundColor: COLORS.primary },
-  filtroText: { fontSize: 12, fontWeight: '700', color: '#888' },
-  filtroTextActive: { color: '#fff' },
-  // Rango personalizado
+  filtrosScroll: { marginTop: 10, backgroundColor: COLORS.bg },
+  filtrosContent: { paddingHorizontal: 13, gap: 6, paddingVertical: 4 },
+  filtroBtn: { borderRadius: 20, paddingHorizontal: 14, paddingVertical: 8, shadowColor: '#000', shadowOpacity: 0.08, shadowRadius: 4, elevation: 2 },
   persRow: { flexDirection: 'row', gap: 8, paddingHorizontal: 13, marginTop: 6 },
-  persInp: { flex: 1, backgroundColor: '#fff', borderRadius: 12, borderWidth: 1.5, borderColor: COLORS.border, padding: 10, fontSize: 12, color: COLORS.text },
+  persInp: { flex: 1, backgroundColor: '#fff', borderRadius: 12, borderWidth: 1.5, borderColor: '#eee', padding: 10, fontSize: 12, color: COLORS.text },
 });
