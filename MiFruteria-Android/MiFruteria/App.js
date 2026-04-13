@@ -91,7 +91,7 @@ export default function App() {
       </View>
 
       {/* Filtros */}
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.filtrosScroll} contentContainerStyle={styles.filtrosContent}>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={[styles.filtrosScroll, {backgroundColor: COLORS.bg}]} contentContainerStyle={styles.filtrosContent}>
         {FILTROS.map(([k, l]) => (
           <TouchableOpacity
             key={k}
@@ -140,14 +140,14 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: COLORS.primary },
+  safe: { flex: 1, backgroundColor: COLORS.bg },
   hdr: { paddingHorizontal: 20, paddingTop: 14, paddingBottom: 20, borderBottomLeftRadius: 26, borderBottomRightRadius: 26 },
   htitle: { fontSize: 22, fontWeight: '800', color: '#fff', letterSpacing: -0.5 },
   hsub: { fontSize: 12, color: 'rgba(255,255,255,0.85)', marginTop: 2 },
   badge: { backgroundColor: '#27ae60', paddingHorizontal: 10, paddingVertical: 3, borderRadius: 20, alignSelf: 'flex-start', marginTop: 6 },
   badgeText: { color: '#fff', fontSize: 11, fontWeight: '800' },
   // Tabs
-  tabsRow: { flexDirection: 'row', backgroundColor: '#fff', borderRadius: 16, margin: 13, marginBottom: 0, padding: 4, shadowColor: '#000', shadowOpacity: 0.06, shadowRadius: 8, elevation: 2, gap: 3 },
+  tabsRow: { flexDirection: 'row', backgroundColor: '#fff', borderRadius: 16, margin: 13, marginTop: 10, marginBottom: 0, padding: 4, shadowColor: '#000', shadowOpacity: 0.06, shadowRadius: 8, elevation: 2, gap: 3 },
   tabBtn: { flex: 1, borderRadius: 12, overflow: 'hidden' },
   tabBtnActive: {},
   tabGrad: { padding: 9, alignItems: 'center' },
