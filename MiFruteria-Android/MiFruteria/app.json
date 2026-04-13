@@ -5,15 +5,20 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
+    "icon": "./icon.png",
     "splash": {
+      "image": "./splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ff6b35"
+      "backgroundColor": "#1a0a3d"
     },
     "assetBundlePatterns": ["**/*"],
     "android": {
       "package": "com.mifruteria.app",
-      "versionCode": 1,
-      "permissions": []
+      "versionCode": 2,
+      "adaptiveIcon": {
+        "foregroundImage": "./adaptive-icon.png",
+        "backgroundColor": "#1a0a3d"
+      }
     },
     "extra": {
       "eas": {
