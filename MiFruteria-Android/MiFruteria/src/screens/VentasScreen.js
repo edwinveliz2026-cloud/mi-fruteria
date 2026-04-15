@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
   ctitle: { fontSize: 11, fontWeight: '800', color: COLORS.textMuted, textTransform: 'uppercase', letterSpacing: 0.6, marginBottom: 12 },
   fieldLabel: { fontSize: 12, fontWeight: '700', color: '#666', marginBottom: 4 },
   inp: { backgroundColor: '#fafafa', borderRadius: 12, borderWidth: 1.5, borderColor: COLORS.border, padding: 12, fontSize: 14, marginBottom: 10, color: COLORS.text },
-  row2: { flexDirection: 'row', gap: 8, marginBottom: 0 },
+  row2: { flexDirection: 'row', gap: 8, marginBottom: 0, alignItems: 'flex-start' },
   fruScroll: { marginBottom: 8 },
   fruGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, paddingBottom: 4 },
   fruBtn: { paddingHorizontal: 10, paddingVertical: 6, borderRadius: 20, borderWidth: 1.5, borderColor: COLORS.secondary, backgroundColor: '#fff8f0' },
