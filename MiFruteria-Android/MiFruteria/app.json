@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Mi Frutería",
-    "slug": "mi-fruteria-qhh6gzqzbtt9dsocsoeq",
+    "slug": "mi-fruteria-nafnmqyrysvtqgkp-humn",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
@@ -14,7 +14,7 @@
     "assetBundlePatterns": ["**/*"],
     "android": {
       "package": "com.mifruteria.app",
-      "versionCode": 2,
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./adaptive-icon.png",
         "backgroundColor": "#1a0a3d"
@@ -22,7 +22,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "17c775a6-2a4d-4455-937b-a8b446c4e73a"
+        "projectId": "afcf4b7d-9aa2-4f3c-b40c-964d537056c3"
       }
     }
   }
