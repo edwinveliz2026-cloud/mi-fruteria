@@ -161,8 +161,8 @@ const styles = StyleSheet.create({
   tabText: { color: '#888', fontSize: 11, fontWeight: '700', textAlign: 'center', paddingVertical: 9 },
   tabTextActive: { color: '#fff', fontSize: 11, fontWeight: '700' },
   filtrosScroll: { marginTop: 10, backgroundColor: COLORS.bg },
-  filtrosContent: { paddingHorizontal: 13, gap: 6, paddingVertical: 4 },
-  filtroBtn: { borderRadius: 20, paddingHorizontal: 14, paddingVertical: 8, shadowColor: '#000', shadowOpacity: 0.08, shadowRadius: 4, elevation: 2 },
+  filtrosContent: { paddingHorizontal: 13, gap: 6, paddingVertical: 4, alignItems: "center" },
+  filtroBtn: { borderRadius: 20, paddingHorizontal: 14, paddingVertical: 8, alignSelf: "center", shadowColor: '#000', shadowOpacity: 0.08, shadowRadius: 4, elevation: 2 },
   persRow: { flexDirection: 'row', gap: 8, paddingHorizontal: 13, marginTop: 6 },
   persInp: { flex: 1, backgroundColor: '#fff', borderRadius: 12, borderWidth: 1.5, borderColor: '#eee', padding: 10, fontSize: 12, color: COLORS.text },
 });
