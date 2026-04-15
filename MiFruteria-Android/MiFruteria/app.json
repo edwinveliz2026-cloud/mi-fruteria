@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Mi Frutería",
-    "slug": "mi-fruteria-nafnmqyrysvtqgkp-humn",
+    "slug": "mi-fruteria",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
@@ -11,7 +11,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#1a0a3d"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "android": {
       "package": "com.mifruteria.app",
       "versionCode": 1,
